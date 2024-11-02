@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>强制进入小世界主页</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f7f7f7;
+        }
+        input[type="text"], #generatedUrl {
+            width: 80%;
+            padding: 15px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #instruction {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: 24px; color: #333;">QQ号查询IP归属地</h1>
+    <input type="text" id="qqNumber" placeholder="输入QQ号强制打开小世界主页">
+    <button onclick="generateUrl()">生成链接</button>
+    <div id="generatedUrl"></div>
+    <div id="instruction">[深黯制作]请将上方链接复制到浏览器打开</div>
+    <script>
+        function generateUrl() {
+            var uin = document.getElementById("qqNumber").value;
+            if (uin) {
+                var url = "https://h5.qzone.qq.com/v2/wezone/jump?_wv=3&_proxy=1&schema=mqqapi%3A//qcircle/openmainpage%3Ffrom%3Dhomepage%26sharecategory%3D1%26shareentrance%3D2%26uin%3D" + uin;
+                document.getElementById("generatedUrl").innerText = url;
+                document.getElementById("generatedUrl").style.wordBreak = "break-all";
+            } else {
+                alert("请输入QQ号");
+            }
+        }
+    </script>
+</body>
+</html>
